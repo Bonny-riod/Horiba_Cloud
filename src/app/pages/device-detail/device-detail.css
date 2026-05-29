@@ -1,0 +1,66 @@
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f7fafc;
+}
+
+.image-wrapper {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.device-img {
+  max-height: 180px;
+  width: auto;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.status-badge.connected { background: #def7ec; color: #03543f; }
+.status-badge.disconnected { background: #fde8e8; color: #9b1c1c; }
+
+.reading-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.sensor-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.sensor-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.s-name { font-size: 0.8rem; color: #718096; margin: 0; }
+.s-value { font-weight: 700; color: #1a202c; margin: 0; }

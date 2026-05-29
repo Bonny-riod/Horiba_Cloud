@@ -1,0 +1,63 @@
+:host {
+  display: block;
+}
+.device-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.device-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.device-info {
+  margin-bottom: 16px;
+}
+
+.device-details h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.device-details .status-tag {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.readings {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.readings .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}

@@ -1,0 +1,36 @@
+<table class="min-w-full border border-gray-300 rounded-lg overflow-hidden">
+
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="p-2 text-left">Component</th>
+      <th class="p-2 text-left">Avg</th>
+      <th class="p-2 text-left">Min</th>
+      <th class="p-2 text-left">Max</th>
+      <th class="p-2 text-left">Reg. Limit</th>
+      <th class="p-2 text-left">Unit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let row of data" class="border-b">
+
+      <td class="p-2">{{ row.component  || '--' }}</td>
+      <td class="p-2">{{ row.avg  || '--'}}</td>
+      <td class="p-2">{{ row.min  || '--'}}</td>
+      <td class="p-2">{{ row.max  || '--'}}</td>
+
+      <td class="p-2">
+        <input
+          type="number"
+          class="border p-1 rounded w-20"
+          [(ngModel)]="row.limit" />
+      </td>
+
+      <td class="p-2">{{ row.unit }}</td>
+
+    </tr>
+  </tbody>
+
+</table>
+<!-- currently this file is not using -->

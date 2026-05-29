@@ -1,0 +1,24 @@
+<div class="device-card bg-white rounded-lg shadow p-4 hover:shadow-lg transition">
+  <div class="device-info flex flex-col items-center">
+    <img class="w-40 h-40 object-cover rounded-md" [src]="device.imageUrl" alt="{{ device.name }}" />
+
+    <div class="device-details mt-3 text-center">
+      <h2 class="font-bold text-lg">{{ device.name || '--'}}</h2>
+      <span
+        class="status-tag px-2 py-1 rounded text-white text-sm mt-1"
+        [ngClass]="device.status === 'connected' ? 'bg-green-500' : 'bg-red-500'">
+        {{ device.status|| '--' | uppercase }}
+      </span>
+    </div>
+
+    <p class="text-sm text-gray-500 mt-2">Last updated: {{ device.lastUpdated|| '--' | date:'short' }}</p>
+  </div>
+
+  <!-- Readings Section -->
+  <div class="readings mt-4">
+    <div *ngFor="let reading of device.readings | keyvalue" class="flex justify-between text-sm mb-1">
+      <span class="font-medium">{{ reading.key || '--' }}</span>
+      <span>{{ reading.value || '--' }}</span>
+    </div>
+  </div>
+</div>

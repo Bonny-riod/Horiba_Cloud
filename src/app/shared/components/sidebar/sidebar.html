@@ -1,0 +1,67 @@
+<div class="sidebar">
+
+  <!-- TOP LOGO -->
+
+  
+
+  <!-- MENU ITEMS -->
+  <div class="menu">
+
+    <!-- Dashboard -->
+    <div class="menu-item" 
+         [class.active]="isActive('dashboard')"
+         (click)="navigateTo('dashboard')">
+
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+      </svg>
+      <span>Dashboard</span>
+    </div>
+
+    <!-- SYSTEM -->
+    <div class="menu-item"
+         [class.active]="isActive('devices')"
+         (click)="navigateTo('devices')">
+
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M12 1l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 19l2-7L2 8h7z"/>
+      </svg>
+      <span>System Devices</span>
+    </div>
+
+    <!-- QUALITY CHECK -->
+    <div class="menu-item"
+         [class.active]="isActive('qc')"
+         (click)="navigateTo('qc')">
+
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M20 6l-11 11-5-5 1.5-1.5L9 14l9.5-9.5L20 6z"/>
+      </svg>
+      <span>Quality Check</span>
+    </div>
+
+    <!-- LOGS -->
+    <div class="menu-item"
+         [class.active]="isActive('logs')"
+         (click)="navigateTo('logs')">
+
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/>
+      </svg>
+      <span>Logs</span>
+    </div>
+
+    <!-- REPORT -->
+    <div class="menu-item"
+         [class.active]="isActive('report')"
+         (click)="navigateTo('report')">
+
+      <svg class="icon" viewBox="0 0 24 24">
+        <path d="M6 2h12v20H6zm2 4h8v2H8zm0 4h5v2H8zm0 4h8v2H8z"/>
+      </svg>
+      <span>Report</span>
+    </div>
+
+  </div>
+
+</div>

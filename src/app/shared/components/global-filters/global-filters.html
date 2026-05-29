@@ -1,0 +1,30 @@
+<div class="bg-white rounded shadow p-4 grid grid-cols-3 gap-4">
+
+  <!-- Date Range -->
+  <mat-form-field appearance="outline">
+    <mat-label>Date Range</mat-label>
+    <input matInput [(ngModel)]="dateRange.start" placeholder="Start Date" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>End</mat-label>
+    <input matInput [(ngModel)]="dateRange.end" placeholder="End Date" />
+  </mat-form-field>
+
+  <!-- Device Type -->
+  <mat-form-field appearance="outline">
+    <mat-label>Device Type</mat-label>
+    <mat-select [(ngModel)]="selectedDevice">
+      <mat-option *ngFor="let d of deviceTypes" [value]="d">{{ d }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Connectivity -->
+  <mat-form-field appearance="outline">
+    <mat-label>Connectivity</mat-label>
+    <mat-select [(ngModel)]="selectedConnectivity">
+      <mat-option *ngFor="let c of connectivity" [value]="c">{{ c }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

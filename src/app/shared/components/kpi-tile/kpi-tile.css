@@ -1,0 +1,44 @@
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) 1.5fr; /* 5 KPIs + Wider Gauge */
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* KPI card style */
+.kpi-card {
+  background: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  height: 110px; /* exact height as ref */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gauge card so gauge pushes to the right */
+.gauge-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+gauge-chart {
+  width: 100%;
+  height: 75px;
+  margin-top: 4px;
+}
+
+.value {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+}

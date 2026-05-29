@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "flatpickr/dist/flatpickr.min.css";
+@import "flatpickr/dist/themes/material_blue.css";
+/* optional theme */
+
+
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* =======================================================
+   🌈 PREMIUM MULTICOLOR SAAS DASHBOARD THEME (SUPER MODERN)
+   ======================================================= */
+
+body {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+}
+
+/* Card Base */
+/* Must be in global styles.css */
+.error-snackbar {
+  /* Modern Material 3 variables */
+  --mdc-snackbar-container-color: #d32f2f;
+  /* Deep Red */
+  --mdc-snackbar-container-shape: 8px;
+  /* Rounded corners */
+  --mat-snack-bar-button-color: #ffffff;
+  /* Action button color */
+}
+
+/* Styles the text (Label) */
+.error-snackbar .mdc-snackbar__label {
+  color: #ffffff !important;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 8px;
+}
+
+/* Add a slight shadow for depth */
+.mat-mdc-snack-bar-container.error-snackbar {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Styling the 'Close' button specifically */
+.error-snackbar .mdc-button__label {
+  color: #ffffff !important;
+  font-weight: bold;
+  text-transform: uppercase;
+}

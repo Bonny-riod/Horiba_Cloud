@@ -1,0 +1,122 @@
+/* =========================
+   WHOLE PAGE
+   ========================= */
+
+   .dashboard-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+     KPI + GAUGE SECTION
+     ========================= */
+  
+  .top-metrics-group {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  /* Stack KPI + Gauge on tablets & below */
+  @media (max-width: 1024px) {
+    .top-metrics-group {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* =========================
+     KPI GRID
+     ========================= */
+  
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+    width: 100%;
+  }
+  
+  /* KPI tile height — responsive safe */
+  kpi-tile .kpi-card {
+    min-height: 120px;
+  }
+  
+  /* =========================
+     GAUGE
+     ========================= */
+  
+  .gauge-container {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 220px;
+    /* padding: 20px; */
+    box-sizing: border-box;
+  }
+  
+  gauge-chart {
+    width: 100%;
+    height: 100%;
+    max-height: 220px;
+  }
+  
+  /* =========================
+     GRAPHS SECTION
+     ========================= */
+  
+  .graphs-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 22px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+     TABLET & MOBILE
+     ========================= */
+  
+  @media (max-width: 768px) {
+    .kpi-grid {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+  
+    .graphs-section {
+      grid-template-columns: 1fr;
+    }
+  
+    .gauge-container {
+      min-height: 200px;
+    }
+  
+    gauge-chart {
+      max-height: 200px;
+    }
+  }
+  
+  /* =========================
+     SMALL PHONES
+     ========================= */
+  
+  @media (max-width: 480px) {
+    .dashboard-page {
+      padding: 12px;
+    }
+  
+    .kpi-grid {
+      gap: 12px;
+    }
+  
+    .graphs-section {
+      gap: 16px;
+    }
+  }
+  

@@ -1,0 +1,51 @@
+<div class="dashboard-page">
+  <div class="top-metrics-group">
+    @if (kpisLoading) {
+      <mat-progress-spinner 
+      color="primary" 
+      mode="indeterminate" 
+      diameter="50" 
+      class="mx-auto my-5" />
+    } @else {
+      <div class="kpi-grid">
+        @for (k of kpis; track k.label) {
+          <kpi-tile 
+            [label]="k.label"
+            [value]="k.value"
+            [color]="k.color">
+          </kpi-tile>
+        } @empty {
+          <p>No KPIs available.</p> 
+        }
+      </div>
+    } 
+     
+    <div class="gauge-container">
+      <gauge-chart [value]="35"></gauge-chart>
+    </div>
+  </div>
+
+  <div class="graphs-section">
+    <analytics-graph 
+      title="DAY DATE & TIME"
+      [defaultRange]="dayRange"
+      (dateFilterChanged)="applyDateFilter($event, 'day')"
+      [graphData]="dayGraph">
+    </analytics-graph>
+  
+    <analytics-graph 
+      title="WEEK DATE & TIME"
+      [defaultRange]="weekRange"
+      (dateFilterChanged)="applyDateFilter($event, 'week')"
+      [graphData]="weekGraph">
+    </analytics-graph>
+  
+    <analytics-graph 
+      title="MONTH DATE & TIME"
+      [defaultRange]="monthRange"
+      (dateFilterChanged)="applyDateFilter($event, 'month')"
+      [graphData]="monthGraph">
+    </analytics-graph>
+  </div>
+
+</div>
