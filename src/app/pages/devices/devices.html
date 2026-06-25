@@ -41,7 +41,7 @@
   @for (device of devices; track device.deviceId) {
   <div class="modern-device-card group" (click)="goToDeviceDetail(device)">
     <div class="image-wrapper">
-      <img [src]="device.deviceImagePath" [alt]="device.deviceName" />
+      <img [src]="getDeviceImage(device)" [alt]="device.deviceName" (error)="onImageError($event)" />
       <div class="status-badge" [class.online]="device.deviceStatusId === 1">
         {{ device.deviceStatusId === 1 ? 'Online' : 'Offline' }}
       </div>

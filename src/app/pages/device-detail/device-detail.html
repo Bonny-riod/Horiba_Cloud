@@ -11,8 +11,9 @@
     
     <div class="detail-card bg-white p-6 rounded-xl shadow-sm border border-slate-200">
       <div class="image-wrapper mb-6 overflow-hidden rounded-lg bg-slate-50 flex justify-center">
-        <img [src]="device.deviceImagePath" 
-             [alt]="device.deviceName" 
+        <img [src]="getDeviceImage(device)"
+             [alt]="device.deviceName"
+             (error)="onImageError($event)"
              class="device-img h-48 object-contain" />
       </div>
       

@@ -80,9 +80,21 @@ export class DevicesComponent implements OnInit, OnDestroy {
     });
   }
 
+  public getDeviceImage(device: any): string {
+    const name = (device?.deviceName || '').toLowerCase().trim().replace(/[\s_]+/g, '-');
+    return name ? `assets/device-images/${name}.png` : 'assets/device-images/placeholder.svg';
+  }
+
+  public onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img.dataset['fallback']) { return; }
+    img.dataset['fallback'] = '1';
+    img.src = 'assets/device-images/placeholder.svg';
+  }
+
   public goToDeviceDetail(device: any): void {
-    this.router.navigate(['/device-detail', device.deviceId], { 
-      state: { data: device } 
+    this.router.navigate(['/device-detail', device.deviceId], {
+      state: { data: { ...device, lastUpdated: (this.lastUpdated ?? '').replace(' ', 'T') } }
     });
   }
 
