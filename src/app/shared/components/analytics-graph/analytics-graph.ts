@@ -64,20 +64,28 @@ export class AnalyticsGraph implements OnInit, OnChanges, AfterViewInit {
   }
 
   @Input() public defaultRange: { start: string, end: string } | null = null;
+  @Input() public singleDate: boolean = false;
+  @Input() public showDateTime: boolean = false;
 
   public ngAfterViewInit(): void {
     const fp = flatpickr(this.datepicker.nativeElement, {
       altInput: true,
-      mode: 'range',
+      mode: this.singleDate ? 'single' : 'range',
       dateFormat: 'Y-m-d',
       altFormat: 'm/d/y',
       onChange: (selectedDates) => {
-        this.isDateRangeValid = selectedDates.length === 2;
+        this.isDateRangeValid = this.singleDate
+          ? selectedDates.length === 1
+          : selectedDates.length === 2;
       }
     });
 
     if (this.defaultRange) {
-      fp.setDate([this.defaultRange.start, this.defaultRange.end]);
+      if (this.singleDate) {
+        fp.setDate(this.defaultRange.start);
+      } else {
+        fp.setDate([this.defaultRange.start, this.defaultRange.end]);
+      }
     }
   }
 
@@ -86,13 +94,34 @@ export class AnalyticsGraph implements OnInit, OnChanges, AfterViewInit {
   };
 
   public applyFilter(dateInput: string): void {
+    if (this.singleDate) {
+      const day = (dateInput || '').trim();
+      if (!day) {
+        this.isDateRangeValid = false;
+        return;
+      }
+      this.isDateRangeValid = true;
+      this.dateFilterChanged.emit({ start: day, end: day });
+      return;
+    }
+
     if (!dateInput || !dateInput.includes("to")) {
       this.isDateRangeValid = false;
       return;
     }
-    
+
     const [start, end] = dateInput.split("to").map(d => d.trim());
     this.dateFilterChanged.emit({ start, end });
+  }
+
+  private buildAxisLabel(row: GraphRecord): string {
+    if (this.showDateTime) {
+      const date = row['Date'] != null ? String(row['Date']).trim() : '';
+      const time = row['Time'] != null ? String(row['Time']).trim() : '';
+      const label = `${date} ${time}`.trim();
+      if (label) { return label; }
+    }
+    return String(row['name']);
   }
 
   public updateGraph(): void {
@@ -146,9 +175,11 @@ export class AnalyticsGraph implements OnInit, OnChanges, AfterViewInit {
     }));
 
     this.chartOptions = {
+      chart: { spacingBottom: 5 },
       title: { text: '' },
       xAxis: {
-        categories: this.graphData.map(d => String(d.name))
+        categories: this.graphData.map(d => this.buildAxisLabel(d)),
+        labels: this.showDateTime ? { rotation: -45, style: { fontSize: '9px' } } : {}
       },
       series: dynamicSeries,
       credits: {

@@ -36,9 +36,9 @@
 
 .graph-box {
   width: 100%;
-  height: 340px;
+  height: 410px;
   flex-shrink: 0;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   position: relative;
 }
 

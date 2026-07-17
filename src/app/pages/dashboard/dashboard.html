@@ -26,22 +26,25 @@
   </div>
 
   <div class="graphs-section">
-    <analytics-graph 
+    <analytics-graph
       title="DAY DATE & TIME"
+      [singleDate]="true"
       [defaultRange]="dayRange"
       (dateFilterChanged)="applyDateFilter($event, 'day')"
       [graphData]="dayGraph">
     </analytics-graph>
   
-    <analytics-graph 
+    <analytics-graph
       title="WEEK DATE & TIME"
+      [showDateTime]="true"
       [defaultRange]="weekRange"
       (dateFilterChanged)="applyDateFilter($event, 'week')"
       [graphData]="weekGraph">
     </analytics-graph>
-  
-    <analytics-graph 
+
+    <analytics-graph
       title="MONTH DATE & TIME"
+      [showDateTime]="true"
       [defaultRange]="monthRange"
       (dateFilterChanged)="applyDateFilter($event, 'month')"
       [graphData]="monthGraph">

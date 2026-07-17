@@ -67,10 +67,8 @@ export class Dashboard implements OnInit, OnDestroy {
     const formatDate = (date: Date) => date.toISOString().split('T')[0];
     const todayStr = formatDate(today);
 
-    // Calculate Day Range (Yesterday to Today)
-    const yesterday = new Date();
-    yesterday.setDate(today.getDate() - 1);
-    this.dayRange = { start: formatDate(yesterday), end: todayStr };
+    // Day chart is single-day: default to today
+    this.dayRange = { start: todayStr, end: todayStr };
     
     // Calculate Week Range (7 days ago to Today)
     const lastWeek = new Date();
